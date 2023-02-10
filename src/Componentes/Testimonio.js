@@ -1,17 +1,18 @@
 import React from "react";
 import "../hojas-de-estilo/Testimonio.css";
 
-function Testimonio (){
+function Testimonio (props){
   return(
     <div className="contenedorTestimonio">
       <img 
         className="imagenTestimonio"
-        src={require("../Imagenes/chica1.png")} //las {} en este caso, indica al codigo que considere todo lo interno codigo JS. - no podemos traer una foto directamente por eso se usa el metodo require()
-        alt="foto chica 1" />
+        src={require(`../Imagenes/Testimonio-${props.imagen}.png`)} /*las {} en este caso, indica al codigo que considere todo lo interno codigo JS. - no podemos traer una foto directamente por eso se usa el metodo require()*/
+        /*para cargas imagenes de forma dinamica en este caso como tenemos una estructura del nombre de imagenes, generamos comillas inversas y donde estan las diferenciales de nombres ponemos el comando -${props.imagen} este comando se llama PLANTILLAS*/
+        alt="foto Susan" />
       <div className="contenerdorTextotestimonio">
-        <p className="nombreTestimonio">Chica 1 en Suecia</p>
-        <p className="cargoTestimonio">Ingeniera de Software en Spotity</p>
-        <p className="textoTestimonio">Siempre he tenido problemas para aprender JavaScript</p>
+        <p className="nombreTestimonio">{props.nombre} en {props.pais}</p>
+        <p className="cargoTestimonio">{props.cargo} en {props.empresa}</p>
+        <p className="textoTestimonio">"{props.testimonio}"</p>
       </div>
     </div>
   );
